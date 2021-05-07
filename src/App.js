@@ -4,7 +4,7 @@ import "./App.css";
 import TodoTask from "./Todotask";
 
 function App() {
-  const [task, settask] = useState([{ id: 1, name: "raja", completed: false }]);
+  const [task, settask] = useState([]);
   const [text, settext] = useState("");
   const handelCheckBox = (e, id) => {
     settask(
@@ -13,7 +13,7 @@ function App() {
       )
     );
   };
-  console.log(task);
+
   const handelClear = () => {
     const filtered = task.filter((res) => !res.completed);
     settask(filtered);
@@ -21,7 +21,6 @@ function App() {
   const handelSubmission = (e) => {
     e.preventDefault();
     if (text.length > 0) {
-      console.log(task.length);
       if (task.length > 0) {
         task.map((res) =>
           res.name !== text
@@ -34,7 +33,6 @@ function App() {
       } else if (task.length === 0) {
         let val = { id: Math.random(), name: text, completed: false };
         task.push(val);
-        // console.log("yas");
       }
     }
 
@@ -44,14 +42,9 @@ function App() {
     <div className="">
       <div className="container">
         <div className="row mainRow">
-          <div className="col-lg-4 col-md-5 col-sm-6 mt-5 mx-auto main">
+          <div className="col-lg-5 col-md-7 col-sm-8 mt-5 mx-auto main">
             <h2>ToDo List</h2>
-            {/* {task.map((res) => (
-        <div key={res.id}>
-          <h3 className={res.completed ? "strike" : ""}>{res.name}</h3>
-          <input type="checkbox" onClick={(e) => handelCheckBox(e, res.id)} />
-        </div>
-      ))} */}
+
             <TodoTask task={task} handelCheckBox={handelCheckBox} />
             <Button className="mt-4" onClick={handelClear}>
               clear all completed task

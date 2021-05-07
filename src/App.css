@@ -12,6 +12,11 @@
   overflow: scroll;
   color: white;
 }
+.main__tasklist > small {
+  text-align: center;
+  color: lightgray;
+  font-weight: 600;
+}
 .main__tasklist__head {
   background-color: rgba(4, 25, 85, 0.8);
   /* width: 90%; */
@@ -21,4 +26,8 @@
 }
 .main__tasklist__head > input {
   padding-left: 10px;
+}
+.completed {
+  color: red;
+  text-decoration: line-through;
 }
